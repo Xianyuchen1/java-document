@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>多线程 | 技术文档</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="hero.png">
+    <meta name="description" content="这是一个技术文档">
+    
+    <link rel="preload" href="/java-document/assets/css/0.styles.86d40e00.css" as="style"><link rel="preload" href="/java-document/assets/js/app.ee9cc79b.js" as="script"><link rel="preload" href="/java-document/assets/js/2.1c8db6a3.js" as="script"><link rel="preload" href="/java-document/assets/js/12.3f75dd4d.js" as="script"><link rel="prefetch" href="/java-document/assets/js/10.377936c1.js"><link rel="prefetch" href="/java-document/assets/js/11.316f043b.js"><link rel="prefetch" href="/java-document/assets/js/13.4553d76b.js"><link rel="prefetch" href="/java-document/assets/js/14.15740441.js"><link rel="prefetch" href="/java-document/assets/js/15.d0b61580.js"><link rel="prefetch" href="/java-document/assets/js/16.b333f9e5.js"><link rel="prefetch" href="/java-document/assets/js/17.372e85b9.js"><link rel="prefetch" href="/java-document/assets/js/18.1e00facc.js"><link rel="prefetch" href="/java-document/assets/js/3.7350765d.js"><link rel="prefetch" href="/java-document/assets/js/4.b7d0708f.js"><link rel="prefetch" href="/java-document/assets/js/5.9e2f4ca7.js"><link rel="prefetch" href="/java-document/assets/js/6.c7b54f12.js"><link rel="prefetch" href="/java-document/assets/js/7.f39602d3.js"><link rel="prefetch" href="/java-document/assets/js/8.12d4bbfb.js"><link rel="prefetch" href="/java-document/assets/js/9.d9bfc54f.js">
+    <link rel="stylesheet" href="/java-document/assets/css/0.styles.86d40e00.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/java-document/" class="home-link router-link-active"><img src="/java-document/hero.png" alt="技术文档" class="logo"> <span class="site-name can-hide">技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/java-document/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Mysql" class="dropdown-title"><span class="title">Mysql</span> <span class="arrow down"></span></button> <button type="button" aria-label="Mysql" class="mobile-dropdown-title"><span class="title">Mysql</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/transaction/事务.html" class="nav-link">
+  事务
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/mysql/多数据源.html" class="nav-link">
+  多数据源
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/Mysql调优.html" class="nav-link">
+  Mysql调优
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/mysql/mysql binlog.html" class="nav-link">
+  Mysql Binlog
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="jvm相关" class="dropdown-title"><span class="title">jvm相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="jvm相关" class="mobile-dropdown-title"><span class="title">jvm相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/java问题排查.html" class="nav-link">
+  java问题排查1
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/MAT使用.html" class="nav-link">
+  MAT使用
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/practice-oom.html" class="nav-link">
+  java问题排查2
+</a></li></ul></div></div><div class="nav-item"><a href="/java-document/k8s/api-resources.html" class="nav-link">
+  Kubernetes
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="多线程" class="dropdown-title"><span class="title">多线程</span> <span class="arrow down"></span></button> <button type="button" aria-label="多线程" class="mobile-dropdown-title"><span class="title">多线程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/juc/多线程.html" class="nav-link">
+  多线程
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/juc/ThreadLocal.html" class="nav-link">
+  ThreadLocal
+</a></li></ul></div></div> <a href="https://github.com/Xianyuchen1/java-document" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/java-document/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Mysql" class="dropdown-title"><span class="title">Mysql</span> <span class="arrow down"></span></button> <button type="button" aria-label="Mysql" class="mobile-dropdown-title"><span class="title">Mysql</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/transaction/事务.html" class="nav-link">
+  事务
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/mysql/多数据源.html" class="nav-link">
+  多数据源
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/Mysql调优.html" class="nav-link">
+  Mysql调优
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/mysql/mysql binlog.html" class="nav-link">
+  Mysql Binlog
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="jvm相关" class="dropdown-title"><span class="title">jvm相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="jvm相关" class="mobile-dropdown-title"><span class="title">jvm相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/java问题排查.html" class="nav-link">
+  java问题排查1
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/MAT使用.html" class="nav-link">
+  MAT使用
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/practice-oom.html" class="nav-link">
+  java问题排查2
+</a></li></ul></div></div><div class="nav-item"><a href="/java-document/k8s/api-resources.html" class="nav-link">
+  Kubernetes
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="多线程" class="dropdown-title"><span class="title">多线程</span> <span class="arrow down"></span></button> <button type="button" aria-label="多线程" class="mobile-dropdown-title"><span class="title">多线程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/juc/多线程.html" class="nav-link">
+  多线程
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/juc/ThreadLocal.html" class="nav-link">
+  ThreadLocal
+</a></li></ul></div></div> <a href="https://github.com/Xianyuchen1/java-document" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>mysql</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java-document/zh/guide/transaction/事务.html" class="sidebar-link">事务</a></li><li><a href="/java-document/zh/guide/mysql/多数据源.html" class="sidebar-link">多数据源</a></li><li><a href="/java-document/zh/guide/Mysql调优.html" class="sidebar-link">Mysql调优</a></li><li><a href="/java-document/zh/guide/mysql/mysql binlog.html" class="sidebar-link">mysql binlog</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>k8s</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java-document/k8s/api-resources.html" class="sidebar-link">Pod</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>jvm相关</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java-document/zh/guide/jvm/java问题排查.html" class="sidebar-link">java问题排查</a></li><li><a href="/java-document/zh/guide/jvm/MAT使用.html" class="sidebar-link">MAT使用</a></li><li><a href="/java-document/zh/guide/jvm/practice-oom.html" class="sidebar-link">实战：线上服务 OOM 排查</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>juc</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java-document/zh/guide/juc/多线程.html" class="active sidebar-link">多线程</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/java-document/zh/guide/juc/多线程.html#_1-leetcode题目" class="sidebar-link">1 leetcode题目</a></li><li class="sidebar-sub-header"><a href="/java-document/zh/guide/juc/多线程.html#_2-基础知识点" class="sidebar-link">2 基础知识点</a></li><li class="sidebar-sub-header"><a href="/java-document/zh/guide/juc/多线程.html#_3-java并发工具类" class="sidebar-link">3 Java并发工具类</a></li></ul></li><li><a href="/java-document/zh/guide/juc/ThreadLocal.html" class="sidebar-link">ThreadLocal</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="多线程"><a href="#多线程" class="header-anchor">#</a> 多线程</h1> <h2 id="_1-leetcode题目"><a href="#_1-leetcode题目" class="header-anchor">#</a> 1 leetcode题目</h2> <h3 id="_1-1-1114-按序打印"><a href="#_1-1-1114-按序打印" class="header-anchor">#</a> 1.1 <a href="https://leetcode-cn.com/problems/print-in-order/" target="_blank" rel="noopener noreferrer">1114.按序打印<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h3> <p>自旋锁：当一个线程在获取锁的时候，如果锁已经被其它线程获取，那么该线程将循环等待，然后不断的判断锁是否能够被成功获取，直到获取到锁才会退出循环。</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">Foo</span> <span class="token punctuation">{</span>
+    <span class="token class-name">AtomicInteger</span> integerSecond <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicInteger</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token class-name">AtomicInteger</span> integerThird <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AtomicInteger</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">Foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">first</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> printFirst<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+
+        <span class="token comment">// printFirst.run() outputs &quot;first&quot;. Do not change or remove this line.</span>
+        printFirst<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        integerSecond<span class="token punctuation">.</span><span class="token function">incrementAndGet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">second</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> printSecond<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+        <span class="token comment">// intergerSecond未更新则一直等待</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>integerSecond<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+        <span class="token punctuation">}</span>
+        <span class="token comment">// printSecond.run() outputs &quot;second&quot;. Do not change or remove this line.</span>
+        printSecond<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        integerThird<span class="token punctuation">.</span><span class="token function">incrementAndGet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">third</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> printThird<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+        <span class="token comment">// intergerThird未更新则一直等待</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>integerThird<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            
+        <span class="token punctuation">}</span>
+        <span class="token comment">// printThird.run() outputs &quot;third&quot;. Do not change or remove this line.</span>
+        printThird<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>这里的while即一个自旋锁，等待原子信号量<code>integerSecond</code>或<code>integerThird</code>为1才会继续往下执行</p> <h3 id="_1-2-1115-交替打印foobar"><a href="#_1-2-1115-交替打印foobar" class="header-anchor">#</a> 1.2 <a href="https://leetcode-cn.com/problems/print-foobar-alternately/" target="_blank" rel="noopener noreferrer">1115. 交替打印FooBar<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></h3> <p>令牌桶：信号量<code>foo</code>和<code>bar</code>是两个令牌桶，<code>foo</code>里面初始就有令牌1个（同一个时刻可以运行一个线程），<code>bar</code>里面初始无令牌，<code>bar.acquire()</code>无法执行，需要等待<code>bar.release()</code>才能继续执行</p> <ul><li>acquire拿到令牌才能往下走</li> <li>release往桶里面放令牌</li></ul> <div class="language-java extra-class"><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">FooBar</span> <span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token class-name">Semaphore</span> foo <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Semaphore</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token class-name">Semaphore</span> bar <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Semaphore</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token class-name">FooBar</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>n <span class="token operator">=</span> n<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> printFoo<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            foo<span class="token punctuation">.</span><span class="token function">acquire</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// printFoo.run() outputs &quot;foo&quot;. Do not change or remove this line.</span>
+            printFoo<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            bar<span class="token punctuation">.</span><span class="token function">release</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">bar</span><span class="token punctuation">(</span><span class="token class-name">Runnable</span> printBar<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">InterruptedException</span> <span class="token punctuation">{</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            bar<span class="token punctuation">.</span><span class="token function">acquire</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// printBar.run() outputs &quot;bar&quot;. Do not change or remove this line.</span>
+            printBar<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            foo<span class="token punctuation">.</span><span class="token function">release</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="_2-基础知识点"><a href="#_2-基础知识点" class="header-anchor">#</a> 2 基础知识点</h2> <h3 id="_2-1-并发三要素-可见性-原子性-有序性"><a href="#_2-1-并发三要素-可见性-原子性-有序性" class="header-anchor">#</a> 2.1 并发三要素：可见性，原子性，有序性</h3> <ul><li>可见性：一个线程对共享变量的修改，另一个线程能够立刻看到</li> <li>原子性：即一个操作或者多个操作 要么全部执行并且执行的过程不会被任何因素打断，要么就都不执行</li> <li>有序性：即程序执行的顺序按照代码的先后顺序执行</li></ul> <h3 id="_2-2-java是怎么解决并发问题的-jmm-java内存模型"><a href="#_2-2-java是怎么解决并发问题的-jmm-java内存模型" class="header-anchor">#</a> 2.2 Java是怎么解决并发问题的：JMM（Java内存模型）</h3> <p>Java 内存模型规范了 JVM 如何提供按需禁用缓存和编译优化的方法。具体来说，这些方法包括：</p> <ul><li>volatile、synchronized 和 final 三个关键字</li> <li>Happens-Before 规则</li></ul> <p>如何保证并发三要素</p> <ul><li><p>保证原子性：</p> <p>通过synchronized和Lock来实现，保证任一时刻只有一个线程执行该代码块</p></li> <li><p>保证可见性：</p> <ol><li>Java提供了volatile关键字来保证可见性。当一个共享变量被volatile修饰时，它会保证修改的值会立即被更新到主存，当有其他线程需要读取时，它会去内存中读取新值。</li> <li>另外，通过synchronized和Lock也能够保证可见性，synchronized和Lock能保证同一时刻只有一个线程获取锁然后执行同步代码，并且在释放锁之前会将对变量的修改刷新到主存当中。因此可以保证可见性。</li></ol></li> <li><p>保证有序性：</p> <p>在Java里面，可以通过volatile关键字来保证一定的“有序性”。另外可以通过synchronized和Lock来保证有序性</p></li></ul> <h3 id="_2-3-线程安全"><a href="#_2-3-线程安全" class="header-anchor">#</a> 2.3 线程安全</h3> <p>可以将共享数据按照安全程度的强弱顺序分成以下五类: 不可变、绝对线程安全、相对线程安全、线程兼容和线程对立。</p> <h4 id="_2-3-1-互斥同步"><a href="#_2-3-1-互斥同步" class="header-anchor">#</a> 2.3.1 互斥同步</h4> <p>synchronized 和 ReentrantLock。</p> <h4 id="_2-3-2-非阻塞同步"><a href="#_2-3-2-非阻塞同步" class="header-anchor">#</a> 2.3.2 非阻塞同步</h4> <ul><li>ABA问题</li></ul> <p>如果一个变量初次读取的时候是 A 值，它的值被改成了 B，后来又被改回为 A，那 CAS 操作就会误认为它从来没有被改变过。比如下面的例子：</p> <p>假设有两个线程 T1 和 T2 都要使用 CAS 操作修改共享变量 X 的值，它们执行的顺序如下：</p> <ol><li>线程 T1 读取 X 的值为 A。</li> <li>线程 T2 读取 X 的值为 A。</li> <li>线程 T2 将 X 的值修改为 B。</li> <li>线程 T2 又将 X 的值修改回 A。</li> <li>线程 T1 将 X 的值修改为 C。</li></ol> <p>此时，X 的最终值为 C，但实际上它已经被修改过了两次。换句话说，线程 T1 并没有注意到中间发生的 A-&gt;B-&gt;A 的变化，因此可能会造成意想不到的后果。这就是多线程的ABA问题。为了解决它，需要使用类似于版本号或时间戳的方法来确保数据在修改时的唯一性。</p> <p>J.U.C 包提供了一个带有标记的原子引用类 AtomicStampedReference 来解决这个问题，它可以通过控制变量值的版本来保证 CAS 的正确性。如果需要解决 ABA 问题，改用传统的互斥同步可能会比原子类更高效</p> <h4 id="_2-3-3-无同步方案"><a href="#_2-3-3-无同步方案" class="header-anchor">#</a> 2.3.3 无同步方案</h4> <ul><li>线程本地存储（Thread Local Storage）</li></ul> <p>如果能保证共享数据的代码在同一个线程中执行，我们就可以把共享数据的可见范围限制在同一个线程之内，这样，无须同步也能保证线程之间不出现数据争用的问题。</p> <p>可以使用 java.lang.ThreadLocal 类来实现线程本地存储功能。</p> <blockquote><p>ThreadLocal 是一种 Java 提供的线程封闭技术，它可以使得一个变量在每个线程中都有独立的副本，从而实现了线程间数据隔离。</p> <p>ThreadLocal 的主要作用是解决多线程并发访问共享变量时出现的线程安全问题。在多线程环境下，如果多个线程同时访问同一个共享变量，就可能会出现竞态条件（Race Condition）和数据不一致等问题。</p> <p>通过使用 ThreadLocal 可以将共享变量转化为线程私有的变量，每个线程只能访问自己的变量副本，从而避免了多线程之间的干扰和竞争。这样，即使多个线程同时访问同一个 ThreadLocal 变量，它们也不会相互影响，从而保证了并发程序的正确性和稳定性。</p> <p>在实际开发中，ThreadLocal 主要应用于需要保存线程上下文信息、跨多个组件或框架的操作上下文、缓存、连接池等方面。比如，在 Web 开发中，一个请求对应一个线程，可以利用 ThreadLocal 存储当前请求的用户信息、语言环境等上下文信息，以便后续代码处理请求时可以方便地获取这些信息。</p></blockquote> <h2 id="_3-java并发工具类"><a href="#_3-java并发工具类" class="header-anchor">#</a> 3 Java并发工具类</h2></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/java-document/zh/guide/jvm/practice-oom.html" class="prev">
+        实战：线上服务 OOM 排查
+      </a></span> <span class="next"><a href="/java-document/zh/guide/juc/ThreadLocal.html">
+        ThreadLocal
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/java-document/assets/js/app.ee9cc79b.js" defer></script><script src="/java-document/assets/js/2.1c8db6a3.js" defer></script><script src="/java-document/assets/js/12.3f75dd4d.js" defer></script>
+  </body>
+</html>

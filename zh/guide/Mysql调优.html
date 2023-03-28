@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mysql调优 | 技术文档</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="hero.png">
+    <meta name="description" content="这是一个技术文档">
+    
+    <link rel="preload" href="/java-document/assets/css/0.styles.86d40e00.css" as="style"><link rel="preload" href="/java-document/assets/js/app.ee9cc79b.js" as="script"><link rel="preload" href="/java-document/assets/js/2.1c8db6a3.js" as="script"><link rel="preload" href="/java-document/assets/js/9.d9bfc54f.js" as="script"><link rel="prefetch" href="/java-document/assets/js/10.377936c1.js"><link rel="prefetch" href="/java-document/assets/js/11.316f043b.js"><link rel="prefetch" href="/java-document/assets/js/12.3f75dd4d.js"><link rel="prefetch" href="/java-document/assets/js/13.4553d76b.js"><link rel="prefetch" href="/java-document/assets/js/14.15740441.js"><link rel="prefetch" href="/java-document/assets/js/15.d0b61580.js"><link rel="prefetch" href="/java-document/assets/js/16.b333f9e5.js"><link rel="prefetch" href="/java-document/assets/js/17.372e85b9.js"><link rel="prefetch" href="/java-document/assets/js/18.1e00facc.js"><link rel="prefetch" href="/java-document/assets/js/3.7350765d.js"><link rel="prefetch" href="/java-document/assets/js/4.b7d0708f.js"><link rel="prefetch" href="/java-document/assets/js/5.9e2f4ca7.js"><link rel="prefetch" href="/java-document/assets/js/6.c7b54f12.js"><link rel="prefetch" href="/java-document/assets/js/7.f39602d3.js"><link rel="prefetch" href="/java-document/assets/js/8.12d4bbfb.js">
+    <link rel="stylesheet" href="/java-document/assets/css/0.styles.86d40e00.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/java-document/" class="home-link router-link-active"><img src="/java-document/hero.png" alt="技术文档" class="logo"> <span class="site-name can-hide">技术文档</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/java-document/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Mysql" class="dropdown-title"><span class="title">Mysql</span> <span class="arrow down"></span></button> <button type="button" aria-label="Mysql" class="mobile-dropdown-title"><span class="title">Mysql</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/transaction/事务.html" class="nav-link">
+  事务
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/mysql/多数据源.html" class="nav-link">
+  多数据源
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/Mysql调优.html" class="nav-link">
+  Mysql调优
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/mysql/mysql binlog.html" class="nav-link">
+  Mysql Binlog
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="jvm相关" class="dropdown-title"><span class="title">jvm相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="jvm相关" class="mobile-dropdown-title"><span class="title">jvm相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/java问题排查.html" class="nav-link">
+  java问题排查1
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/MAT使用.html" class="nav-link">
+  MAT使用
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/practice-oom.html" class="nav-link">
+  java问题排查2
+</a></li></ul></div></div><div class="nav-item"><a href="/java-document/k8s/api-resources.html" class="nav-link">
+  Kubernetes
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="多线程" class="dropdown-title"><span class="title">多线程</span> <span class="arrow down"></span></button> <button type="button" aria-label="多线程" class="mobile-dropdown-title"><span class="title">多线程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/juc/多线程.html" class="nav-link">
+  多线程
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/juc/ThreadLocal.html" class="nav-link">
+  ThreadLocal
+</a></li></ul></div></div> <a href="https://github.com/Xianyuchen1/java-document" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/java-document/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Mysql" class="dropdown-title"><span class="title">Mysql</span> <span class="arrow down"></span></button> <button type="button" aria-label="Mysql" class="mobile-dropdown-title"><span class="title">Mysql</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/transaction/事务.html" class="nav-link">
+  事务
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/mysql/多数据源.html" class="nav-link">
+  多数据源
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/Mysql调优.html" class="nav-link">
+  Mysql调优
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/mysql/mysql binlog.html" class="nav-link">
+  Mysql Binlog
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="jvm相关" class="dropdown-title"><span class="title">jvm相关</span> <span class="arrow down"></span></button> <button type="button" aria-label="jvm相关" class="mobile-dropdown-title"><span class="title">jvm相关</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/java问题排查.html" class="nav-link">
+  java问题排查1
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/MAT使用.html" class="nav-link">
+  MAT使用
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/jvm/practice-oom.html" class="nav-link">
+  java问题排查2
+</a></li></ul></div></div><div class="nav-item"><a href="/java-document/k8s/api-resources.html" class="nav-link">
+  Kubernetes
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="多线程" class="dropdown-title"><span class="title">多线程</span> <span class="arrow down"></span></button> <button type="button" aria-label="多线程" class="mobile-dropdown-title"><span class="title">多线程</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/juc/多线程.html" class="nav-link">
+  多线程
+</a></li><li class="dropdown-item"><!----> <a href="/java-document/zh/guide/juc/ThreadLocal.html" class="nav-link">
+  ThreadLocal
+</a></li></ul></div></div> <a href="https://github.com/Xianyuchen1/java-document" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>mysql</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java-document/zh/guide/transaction/事务.html" class="sidebar-link">事务</a></li><li><a href="/java-document/zh/guide/mysql/多数据源.html" class="sidebar-link">多数据源</a></li><li><a href="/java-document/zh/guide/Mysql调优.html" class="active sidebar-link">Mysql调优</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/java-document/zh/guide/Mysql调优.html#_1-连接线程缓存thread-cache-size" class="sidebar-link">1. 连接线程缓存threadcachesize</a></li><li class="sidebar-sub-header"><a href="/java-document/zh/guide/Mysql调优.html#_2-表定义信息缓存table-definition-cache" class="sidebar-link">2. 表定义信息缓存tabledefinitioncache</a></li><li class="sidebar-sub-header"><a href="/java-document/zh/guide/Mysql调优.html#_3-最大连接数max-connections" class="sidebar-link">3. 最大连接数max_connections</a></li><li class="sidebar-sub-header"><a href="/java-document/zh/guide/Mysql调优.html#_4-临时表使用内存tmp-table-size" class="sidebar-link">4. 临时表使用内存tmptablesize</a></li><li class="sidebar-sub-header"><a href="/java-document/zh/guide/Mysql调优.html#_5-慢查询" class="sidebar-link">5. 慢查询</a></li><li class="sidebar-sub-header"><a href="/java-document/zh/guide/Mysql调优.html#_6-innodb数据和索引缓存innodb-buffer-pool-size" class="sidebar-link">6 innodb数据和索引缓存innodbbufferpool_size</a></li><li class="sidebar-sub-header"><a href="/java-document/zh/guide/Mysql调优.html#_7-二进制日志缓存binlog-cache-size" class="sidebar-link">7 二进制日志缓存binlogcachesize</a></li><li class="sidebar-sub-header"><a href="/java-document/zh/guide/Mysql调优.html#_8-表缓存table-open-cache" class="sidebar-link">8 表缓存tableopencache</a></li></ul></li><li><a href="/java-document/zh/guide/mysql/mysql binlog.html" class="sidebar-link">mysql binlog</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>k8s</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java-document/k8s/api-resources.html" class="sidebar-link">Pod</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>jvm相关</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java-document/zh/guide/jvm/java问题排查.html" class="sidebar-link">java问题排查</a></li><li><a href="/java-document/zh/guide/jvm/MAT使用.html" class="sidebar-link">MAT使用</a></li><li><a href="/java-document/zh/guide/jvm/practice-oom.html" class="sidebar-link">实战：线上服务 OOM 排查</a></li></ul></section></li><li><section class="sidebar-group depth-0"><p class="sidebar-heading"><span>juc</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/java-document/zh/guide/juc/多线程.html" class="sidebar-link">多线程</a></li><li><a href="/java-document/zh/guide/juc/ThreadLocal.html" class="sidebar-link">ThreadLocal</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="mysql调优"><a href="#mysql调优" class="header-anchor">#</a> Mysql调优</h1> <h2 id="_1-连接线程缓存thread-cache-size"><a href="#_1-连接线程缓存thread-cache-size" class="header-anchor">#</a> 1. 连接线程缓存thread_cache_size</h2> <p><a href="https://qastack.cn/server/408845/what-value-of-thread-cache-size-should-i-use" target="_blank" rel="noopener noreferrer">调优方法<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>查询</p> <div class="language-sh extra-class"><pre class="language-sh"><code>show variables like <span class="token string">'thread_cache_size'</span><span class="token punctuation">;</span> 
+
+SHOW GLOBAL STATUS LIKE <span class="token string">'Connections'</span><span class="token punctuation">;</span>
+SHOW GLOBAL STATUS LIKE <span class="token string">'Threads_created'</span><span class="token punctuation">;</span>
+SHOW GLOBAL STATUS LIKE <span class="token string">'Max_used_connections'</span><span class="token punctuation">;</span>
+</code></pre></div><p>修改</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token number">1</span>、mysql<span class="token operator">&gt;</span> <span class="token builtin class-name">set</span> global <span class="token assign-left variable">thread_cache_size</span><span class="token operator">=</span><span class="token number">16</span>
+<span class="token number">2</span>、编辑/etc/my.cnf 更改/添加
+thread_concurrency <span class="token operator">=</span> <span class="token number">16</span>
+</code></pre></div><p>Thread Cache 命中率：</p> <div class="language- extra-class"><pre class="language-text"><code>Thread_Cache_Hit = (Connections - Threads_created) / Connections * 100%;
+</code></pre></div><p>一般在系统稳定运行一段时间后，Thread Cache命中率应该保持在90%左右才算正常。</p> <h2 id="_2-表定义信息缓存table-definition-cache"><a href="#_2-表定义信息缓存table-definition-cache" class="header-anchor">#</a> 2. 表定义信息缓存table_definition_cache</h2> <p><a href="https://zhuanlan.zhihu.com/p/424477364" target="_blank" rel="noopener noreferrer">相关文章<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>为了不让 TDC 带来的好处消失, 我们建议始终保持状态 <code>Opened_table_definitions</code>小于参数<code>table_definition_cache</code>, 这样就能保证 TDC 始终命中。</p> <p>相关查询如下</p> <div class="language-sh extra-class"><pre class="language-sh"><code>mysql<span class="token operator">&gt;</span> show global status like <span class="token string">'Opened_table_definitions'</span><span class="token punctuation">;</span>
++--------------------------+-------+
+<span class="token operator">|</span> Variable_name            <span class="token operator">|</span> Value <span class="token operator">|</span>
++--------------------------+-------+
+<span class="token operator">|</span> Opened_table_definitions <span class="token operator">|</span> <span class="token number">378</span>   <span class="token operator">|</span>
++--------------------------+-------+
+<span class="token number">1</span> row <span class="token keyword">in</span> <span class="token builtin class-name">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+
+mysql<span class="token operator">&gt;</span> show variables like <span class="token string">'table_definition_cache'</span><span class="token punctuation">;</span>
++------------------------+-------+
+<span class="token operator">|</span> Variable_name          <span class="token operator">|</span> Value <span class="token operator">|</span>
++------------------------+-------+
+<span class="token operator">|</span> table_definition_cache <span class="token operator">|</span> <span class="token number">2000</span>  <span class="token operator">|</span>
++------------------------+-------+
+<span class="token number">1</span> row <span class="token keyword">in</span> <span class="token builtin class-name">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre></div><p>可以看到 <code>Opened_table_definitions</code>为378，小于参数<code>table_definition_cache</code>定义的2000</p> <h2 id="_3-最大连接数max-connections"><a href="#_3-最大连接数max-connections" class="header-anchor">#</a> 3. 最大连接数max_connections</h2> <blockquote><p>max_used_connections / max_connections * 100% （理想值≈ 85%）</p></blockquote> <p>如果max_used_connections跟max_connections相同 那么就是max_connections设置过低或者超过服务器负载上限了，低于10%则设置过大。</p> <p>查询</p> <div class="language-sh extra-class"><pre class="language-sh"><code>mysql<span class="token operator">&gt;</span> show variables like <span class="token string">'max_connections'</span><span class="token punctuation">;</span>
++-----------------+-------+
+<span class="token operator">|</span> Variable_name   <span class="token operator">|</span> Value <span class="token operator">|</span>
++-----------------+-------+
+<span class="token operator">|</span> max_connections <span class="token operator">|</span> <span class="token number">1000</span>  <span class="token operator">|</span>
++-----------------+-------+
+<span class="token number">1</span> row <span class="token keyword">in</span> <span class="token builtin class-name">set</span> <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
+
+mysql<span class="token operator">&gt;</span> SHOW GLOBAL STATUS LIKE <span class="token string">'Max_used_connections'</span><span class="token punctuation">;</span>
++----------------------+-------+
+<span class="token operator">|</span> Variable_name        <span class="token operator">|</span> Value <span class="token operator">|</span>
++----------------------+-------+
+<span class="token operator">|</span> Max_used_connections <span class="token operator">|</span> <span class="token number">313</span>   <span class="token operator">|</span>
++----------------------+-------+
+<span class="token number">1</span> row <span class="token keyword">in</span> <span class="token builtin class-name">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre></div><p>比率为31.3%，符合要求</p> <h2 id="_4-临时表使用内存tmp-table-size"><a href="#_4-临时表使用内存tmp-table-size" class="header-anchor">#</a> 4. 临时表使用内存tmp_table_size</h2> <p>定义<code>MEMORY</code>存储引擎创建的内部内存临时表的最大大小，比较理想的配置是：</p> <div class="language- extra-class"><pre class="language-text"><code>Created_tmp_disk_tables / Created_tmp_tables * 100% &lt;= 25%
+</code></pre></div><p>查询</p> <div class="language-sh extra-class"><pre class="language-sh"><code>mysql<span class="token operator">&gt;</span> show global status like <span class="token string">'created_tmp%'</span><span class="token punctuation">;</span>
++-------------------------+-------+
+<span class="token operator">|</span> Variable_name           <span class="token operator">|</span> Value <span class="token operator">|</span>
++-------------------------+-------+
+<span class="token operator">|</span> Created_tmp_disk_tables <span class="token operator">|</span> <span class="token number">0</span>     <span class="token operator">|</span>
+<span class="token operator">|</span> Created_tmp_files       <span class="token operator">|</span> <span class="token number">55</span>    <span class="token operator">|</span>
+<span class="token operator">|</span> Created_tmp_tables      <span class="token operator">|</span> <span class="token number">993</span>   <span class="token operator">|</span>
++-------------------------+-------+
+<span class="token number">3</span> rows <span class="token keyword">in</span> <span class="token builtin class-name">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre></div><p>磁盘创建的临时表为0，为最优</p> <h2 id="_5-慢查询"><a href="#_5-慢查询" class="header-anchor">#</a> 5. 慢查询</h2> <p>慢查询默认为关闭状态</p> <p>开启和查询状态</p> <div class="language-sh extra-class"><pre class="language-sh"><code>mysql<span class="token operator">&gt;</span> <span class="token builtin class-name">set</span> global <span class="token assign-left variable">slow_query_log</span><span class="token operator">=</span>on<span class="token punctuation">;</span>
+Query OK, <span class="token number">0</span> rows affected <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
+
+mysql<span class="token operator">&gt;</span> show variables like <span class="token string">'%slow_query%'</span><span class="token punctuation">;</span>
++---------------------+------------------------------------------------+
+<span class="token operator">|</span> Variable_name       <span class="token operator">|</span> Value                                          <span class="token operator">|</span>
++---------------------+------------------------------------------------+
+<span class="token operator">|</span> slow_query_log      <span class="token operator">|</span> ON                                             <span class="token operator">|</span>
+<span class="token operator">|</span> slow_query_log_file <span class="token operator">|</span> /var/lib/mysql/ecs-gacbd-interface-02-slow.log <span class="token operator">|</span>
++---------------------+------------------------------------------------+
+<span class="token number">2</span> rows <span class="token keyword">in</span> <span class="token builtin class-name">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
+</code></pre></div><h2 id="_6-innodb数据和索引缓存innodb-buffer-pool-size"><a href="#_6-innodb数据和索引缓存innodb-buffer-pool-size" class="header-anchor">#</a> 6 innodb数据和索引缓存innodb_buffer_pool_size</h2> <p>查询状态</p> <div class="language-sh extra-class"><pre class="language-sh"><code>show variables like <span class="token string">'innodb_buffer_pool_size'</span><span class="token punctuation">;</span>
+</code></pre></div><p>计算命中率</p> <div class="language-sh extra-class"><pre class="language-sh"><code>show status like <span class="token string">'innodb_buffer_pool_read%'</span><span class="token punctuation">;</span>
+</code></pre></div><p>命中率为<code>innodb_buffer_pool_read_requests / (innodb_buffer_pool_read_requests + innodb_buffer_pool_reads ) * 100%</code>，若此值小于99%，考虑增大缓存</p> <h2 id="_7-二进制日志缓存binlog-cache-size"><a href="#_7-二进制日志缓存binlog-cache-size" class="header-anchor">#</a> 7 二进制日志缓存binlog_cache_size</h2> <p>查询</p> <div class="language-sh extra-class"><pre class="language-sh"><code>show variables like <span class="token string">'binlog_cache_size'</span><span class="token punctuation">;</span>
+</code></pre></div><p>计算命中率</p> <div class="language-sh extra-class"><pre class="language-sh"><code>show global status like <span class="token string">'binlog_cache_%'</span><span class="token punctuation">;</span>
+</code></pre></div><p>命中率为<code>Binlog_cache_use / (Binlog_cache_use + Binlog_cache_disk_use ) * 100%</code>，若此值小于99%，考虑增大缓存</p> <h2 id="_8-表缓存table-open-cache"><a href="#_8-表缓存table-open-cache" class="header-anchor">#</a> 8 表缓存table_open_cache</h2> <table><thead><tr><th>属性</th> <th>值</th></tr></thead> <tbody><tr><td>默认值</td> <td>2000</td></tr> <tr><td>最小值</td> <td>1</td></tr> <tr><td>最大值</td> <td>524288</td></tr></tbody></table> <p>查询</p> <div class="language-sh extra-class"><pre class="language-sh"><code>show variables like <span class="token string">'table_open_cache'</span><span class="token punctuation">;</span>
+</code></pre></div><p>计算是否需要增加</p> <div class="language-sh extra-class"><pre class="language-sh"><code>SHOW GLOBAL STATUS LIKE <span class="token string">'Open%tables'</span><span class="token punctuation">;</span>
+</code></pre></div><p>如果<code>Open_tables</code>的值等于<code>table_open_cache</code>，且<code>Opened_tables</code>远远大于<code>table_open_cache</code>，说明表缓存池快要满了 但 <code>Opened_tables</code> 还在一直有新的增长 这说明你还有很多未被缓存的表，这时可以适当增加 <code>table_open_cache</code> 的大小。</p> <p>比较适合的值：</p> <div class="language- extra-class"><pre class="language-text"><code>Open_tables / Opened_tables &gt;= 0.85
+Open_tables / table_open_cache &lt;= 0.95
+</code></pre></div><p>hit rate计算公式</p> <div class="language- extra-class"><pre class="language-text"><code>hit rate = table_open_cache * 100 / Opened_tables = 0.5
+</code></pre></div><p>hit rate 为 0.5 或 1.0 较好</p> <p>设置</p> <div class="language-sh extra-class"><pre class="language-sh"><code><span class="token builtin class-name">set</span> global table_open_cache <span class="token operator">=</span> <span class="token number">2048</span><span class="token punctuation">;</span> （立即生效重启后失效）
+
+MySQL 配置文件 my.cnf 中 mysqld 下添加 table_open_cache
+<span class="token punctuation">[</span>mysqld<span class="token punctuation">]</span>
+table_open_cache <span class="token operator">=</span> <span class="token number">2048</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/java-document/zh/guide/mysql/多数据源.html" class="prev">
+        多数据源
+      </a></span> <span class="next"><a href="/java-document/zh/guide/mysql/mysql binlog.html">
+        mysql binlog
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/java-document/assets/js/app.ee9cc79b.js" defer></script><script src="/java-document/assets/js/2.1c8db6a3.js" defer></script><script src="/java-document/assets/js/9.d9bfc54f.js" defer></script>
+  </body>
+</html>
